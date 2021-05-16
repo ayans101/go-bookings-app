@@ -9,6 +9,11 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/css/datepicker-bs4.min.css"
+    />
+
     <style type="text/css">
       .my-footer {
         height: 5em;
@@ -122,37 +127,28 @@
             novalidate
             class="needs-validation"
           >
-            <div class="row">
+            <div class="row" id="reservation-dates">
               <div class="col mb-3">
-                <label for="start_date" class="form-label">Starting Date</label>
                 <input
                   required
-                  type="date"
                   class="form-control"
-                  id="start_date"
-                  name="start_date"
-                  aria-describedby="startDateHelp"
+                  type="text"
+                  name="start"
+                  placeholder="Arrival"
                 />
-                <small id="startDateHelp" class="form-text text-muted">
-                  Enter your starting date in the form of YYYY-MM-DD.
-                </small>
               </div>
               <div class="col mb-3">
-                <label for="end_date" class="form-label">Ending Date</label>
                 <input
                   required
-                  type="date"
                   class="form-control"
-                  id="end_date"
-                  name="end_date"
-                  aria-describedby="endDateHelp"
+                  type="text"
+                  name="end"
+                  placeholder="Departure"
                 />
-                <small id="endDateHelp" class="form-text text-muted">
-                  Enter your ending date in the form of YYYY-MM-DD.
-                </small>
               </div>
             </div>
 
+            <hr />
             <button type="submit" class="btn btn-primary">
               Search Availability
             </button>
@@ -172,6 +168,7 @@
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/js/datepicker-full.min.js"></script>
 
     <script>
       (function () {
@@ -196,6 +193,11 @@
           );
         });
       })();
+
+      const elem = document.getElementById("reservation-dates");
+      const rangepicker = new DateRangePicker(elem, {
+        format: "yyyy-mm-dd",
+      });
     </script>
   </body>
 </html>
